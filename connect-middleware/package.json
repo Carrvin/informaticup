@@ -1,0 +1,19 @@
+{
+  "name": "informaticup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon main.js",
+    "start": "node main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^107.0.2",
+    "nodemon": "^2.0.20",
+    "selenium": "^2.20.0",
+    "selenium-webdriver": "^4.5.0"
+  }
+}
