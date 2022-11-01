@@ -3,7 +3,6 @@ const path = require('path');
 
 const { Builder, By } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
-const options = require('selenium-webdriver/chrome');
 
 const DRIVER_PATH = path.join(__dirname, 'webdriver/chromedriver');
 const DRIVER_DEFAULT_IMPLICIT_TIMEOUT_MS = 500;
@@ -47,8 +46,10 @@ const PROFIT_WEB_URL = 'http://127.0.0.1:5500/profit-page/Profit!.html';
   const runBtn = await driver.findElement(By.xpath("//Button[text()='Run']"));
   await runBtn.click();
 
-  // Je nach Laufzeit anpassen, da sonst nach der Score-Box gesuch wird bevor diese vorhanden ist.
-  await driver.sleep('500');
+  // Falls der Fehler geworfen wird dass die scoreBox nicht gefunden wird, liegt das entweder an einem Fehler in der Datei,
+  // oder der die Auswertung dauert länger als DRIVER_DEFAULT_IMPLICIT_TIMEOUT_MS. Für den letzten Fall einfach folgende
+  // Zeile einkommentieren und entsprechende Wartezeit in Millisekunden definieren.
+  // await driver.sleep(500);
 
   const scoreBox = await driver.findElement(
     By.xpath("//li[starts-with(., 'Score: ')]")
@@ -58,5 +59,6 @@ const PROFIT_WEB_URL = 'http://127.0.0.1:5500/profit-page/Profit!.html';
 
   console.log(scoreText);
 
+  // Zum debuggen auskommentieren, dann bleibt der von Selenium geöffnete Browser offen nach dem Run.
   await driver.quit();
 })();

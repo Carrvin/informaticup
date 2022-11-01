@@ -2,8 +2,9 @@
 - Den Ordner `informaticup` in VSCode öffnen.
 - Die VSCode Extension Live Server (ritwickdey.liveserver) installieren.
 - Die Datei [./profit-page/Profit!.html](./profit-page/Profit!.html) in einem VSCode Tab öffnen.
-- Unten rechts in der Statusbar von VSCode ist ein Symbol und der Text Go Live zu sehen. Da drauf klicken. Das startet einen Webserver unter http://127.0.0.1:5500/. Es werden zwei Tabs im Browser geöffnet. Die können beide wieder geschlossen werden. Achtet nur darauf dass der Port 5000 stimmt.
+- Unten rechts in der Statusbar von VSCode ist ein Symbol und der Text `Go Live` zu sehen. Da drauf klicken. Das startet einen Webserver unter http://127.0.0.1:5500/. Es werden zwei Tabs im Browser geöffnet. Die können beide wieder geschlossen werden. Achtet nur darauf dass der Port 5500 stimmt.
 - Hier -> https://chromedriver.chromium.org/downloads den WebDriver runterladen der zu eurer Platform (Windows/Linux/Mac) und zur installierten Chrome-Version passt. Den WebDriver entpacken und unter [./connect-middleware/webdriver](./connect-middleware/webdriver) den chromedriver mit der extrahierten Version ersetzen. Der chromedriver in dem Ordner ist für den M1 MAC und Chrome in Version 107.
 - Im Root-Verzeichnis von [./connect-middleware](./connect-middleware) folgenden Befehl im terminal ausführen: `npm ci`.
 - Ab jetzt könnt ihr im Verzeichnis [./connect-middleware](./connect-middleware) (!) mittels `npm start <Datei zum Importieren>` das Selenium Script starten. Die Anwendung läuft kurz und spuckt dann den Score in stdout aus (lässt sich easy starten/auslesen, ob mit Python, C, C++, ...).
 - Am Beispiel mit der Import-Datei [./connect-middleware/test.json](./connect-middleware/test.json): `npm start test.json`
+- Es lässt sich noch die Option (`--headless`) verbauen dass Selenium den Test gegen einen Headless Chrome ausführt. Habe ich nicht verbaut damit man bei Fehlern den Kram besser debuggen kann. Bei autoatischen Runs mit vielen Dateien könnte die Headless-Option aber einiges an Performance-Vorteilen bieten.
